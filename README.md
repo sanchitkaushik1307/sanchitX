@@ -1,129 +1,301 @@
 # SanchitX
 
-> Think. Generate. Innovate.
+> **Think. Generate. Innovate.**
 
-## Overview
-**SanchitX** is an AI-powered conversational platform engineered for fast, intelligent, and seamless interaction. Built using modern web technologies, SanchitX delivers real-time AI capabilities, full thread management, user authentication, and responsive cross-device performance.
+SanchitX is a full-stack AI chatbot application designed to provide a modern conversational AI experience with persistent conversations, secure authentication, chat management, and AI-powered responses using the Groq API.
 
-## Features
-- **User Authentication**: Secure user registration, login, session persistence, and instant demo access.
-- **AI Model Switcher**: Dynamic selection across multiple Groq-supported LLM models (e.g., `openai/gpt-oss-120b`, `llama-3.3-70b-versatile`).
-- **Thread Management**: Create new chats, rename existing conversations, delete threads, and view organized history grouped by time (Today, Yesterday, Previous 7 Days, Older).
-- **Responsive UI**: Sleek dark-mode interface with collapsible sidebar and mobile-friendly drawer navigation.
-- **Resilient Fallback Mode**: Automatic in-memory fallback for authentication and chat storage when a database is offline or not configured.
+## 🚀 Live Demo
 
-## Tech Stack
-- **Frontend**: React 19, Vite, Vanilla CSS, FontAwesome icons, `react-markdown` with `rehype-highlight` syntax highlighting.
-- **Backend**: Node.js, Express 5, JWT authentication, `bcryptjs`.
-- **Database**: MongoDB (via Mongoose) with fallback in-memory state management.
-- **AI Engine**: Groq API (`openai` SDK integration).
+**[SanchitX — Live Demo](https://sanchitx.onrender.com)**
 
-## Architecture
-SanchitX follows a modular client-server architecture:
+## ✨ Features
+
+* 🤖 AI-powered conversational chat using Groq
+* 🔐 User authentication and authorization
+* 👤 Secure user sessions
+* 💬 Persistent conversation history
+* ➕ Create new conversations
+* 🔄 Switch between previous chats
+* ✏️ Rename conversations
+* 🗑️ Delete conversations
+* 📱 Responsive and modern UI
+* 🌙 Dark-themed interface
+* ⚡ Fast AI responses
+* 🔒 User-specific chat data
+* 🧠 Configurable AI model
+* 🚪 Secure logout
+* 🎨 Custom SanchitX branding
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* HTML / CSS / JavaScript
+* Modern responsive UI
+* Component-based architecture where applicable
+
+### Backend
+
+* Node.js
+* Express.js
+* REST API
+
+### AI
+
+* Groq API
+* OpenAI-compatible API interface
+* Llama-based AI model
+
+### Authentication & Database
+
+* Supabase Authentication
+* Supabase Database
+* Row Level Security (RLS)
+
+### Deployment
+
+* Render
+* GitHub
+
+## 🏗️ Architecture
+
+```text
+                   ┌─────────────────────┐
+                   │      SanchitX       │
+                   │     Frontend UI     │
+                   └──────────┬──────────┘
+                              │
+                              ▼
+                   ┌─────────────────────┐
+                   │    Node.js / API    │
+                   │       Backend       │
+                   └──────────┬──────────┘
+                              │
+                ┌─────────────┴─────────────┐
+                ▼                           ▼
+       ┌─────────────────┐         ┌─────────────────┐
+       │    Supabase     │         │      Groq       │
+       │ Auth + Database │         │    AI Models    │
+       └─────────────────┘         └─────────────────┘
 ```
-[ Frontend (React + Vite) ]
-          │  REST API Calls (JSON + Bearer JWT)
-          ▼
-[ Backend (Express 5 Server) ] ────► [ Groq AI API Engine ]
-          │
-          ▼
-[ MongoDB Database / In-Memory Fallback ]
+
+## 💡 Core Functionality
+
+### Authentication
+
+Users can create accounts and securely sign in to SanchitX.
+
+The authentication system provides:
+
+* Account registration
+* Login
+* Logout
+* Session persistence
+* Protected application access
+* User-specific data access
+
+### Chat Management
+
+Each user can maintain multiple conversations.
+
+Users can:
+
+* Create a new chat
+* Switch between conversations
+* Continue previous conversations
+* Rename chats
+* Delete chats
+
+### AI Chat
+
+Messages are sent from the frontend to the backend, which communicates with the Groq API.
+
+```text
+User Message
+     ↓
+SanchitX Frontend
+     ↓
+Backend API
+     ↓
+Groq API
+     ↓
+AI Model
+     ↓
+Backend
+     ↓
+SanchitX Frontend
 ```
 
-## Authentication
-Authentication in SanchitX is powered by JSON Web Tokens (JWT) and `bcryptjs` password hashing.
-- **Sign Up / Sign In**: Creates and verifies secure user accounts.
-- **Session Verification**: The `/api/auth/me` endpoint restores active sessions on application load.
-- **Demo Mode**: One-click demo access with pre-configured credentials.
-- **Database Support**: Integrates with MongoDB, with optional environment configuration support for Supabase services if configured.
+Conversation messages are stored so users can return to previous conversations.
 
-## Chat Management
-- **Persistent Threads**: Each chat thread has a unique identifier and records message pairs (`user` and `assistant`).
-- **Sidebar Organization**: Categorizes conversations chronologically (Today, Yesterday, 7 Days, Older).
-- **Thread Control**: Inline modal controls allow instant thread renaming and deletion.
+## 🔐 Security
 
-## AI Integration
-SanchitX integrates with the **Groq API** using the standard OpenAI client SDK:
-- **Fast Responses**: Low-latency inference across selected LLM models.
-- **Dynamic Model Fetching**: The backend endpoint `/api/models` queries available Groq AI models.
-- **Markdown & Code Highlighting**: Responses render rich markdown formatting with syntax highlighting.
+SanchitX follows server-side API security practices.
 
-## Security
-- **JWT Authorization**: Secured endpoints require `Bearer` token validation.
-- **Password Security**: Passwords hashed using `bcryptjs` before database storage.
-- **CORS Control**: Dynamic CORS filtering allowing configured origins (`FRONTEND_URL`) and development environments.
-- **Secret Protection**: API keys and database credentials strictly isolated via server-side environment variables.
+* Groq API keys are stored as environment variables.
+* Sensitive API keys are never exposed to the frontend.
+* Supabase authentication manages user sessions.
+* Row Level Security protects user-specific data.
+* Users can only access their own conversations.
+* Environment files are excluded from Git.
 
-## Local Development
+## ⚙️ Local Development
 
-### Prerequisites
-- Node.js (v18+)
-- npm
+### 1. Clone the repository
 
-### 1. Backend Setup
 ```bash
-cd Backend
+git clone https://github.com/sanchitkaushik1307/sanchitX.git
+cd sanchitX
+```
+
+### 2. Install dependencies
+
+Install frontend dependencies:
+
+```bash
 npm install
+```
+
+If the project contains a separate backend:
+
+```bash
+cd backend
+npm install
+```
+
+### 3. Configure environment variables
+
+Create the appropriate `.env` files based on the project's `.env.example`.
+
+Typical variables include:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=your_groq_model
+
+SUPABASE_URL=your_supabase_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+
+VITE_API_BASE_URL=http://localhost:YOUR_BACKEND_PORT
+```
+
+Never commit real API keys or passwords to GitHub.
+
+### 4. Start the backend
+
+```bash
 npm run dev
 ```
 
-### 2. Frontend Setup
+or use the project's configured backend start command.
+
+### 5. Start the frontend
+
 ```bash
-cd Frontend
-npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open the local development URL shown in the terminal.
 
-## Environment Variables
+## 🌐 Production Deployment
 
-### Backend (`Backend/.env`)
-```env
-PORT=8080
-FRONTEND_URL=http://localhost:5173
-MONGODB_URI=mongodb://127.0.0.1:27017/sanchitx
-JWT_SECRET=your_jwt_secret_key_here
-GROQ_API_KEY=your_groq_api_key_here
-GROQ_MODEL=openai/gpt-oss-120b
+SanchitX is deployed using Render.
+
+Production architecture:
+
+```text
+Frontend
+https://sanchitx.onrender.com
+
+        ↓
+
+Backend
+https://sanchitxbackend.onrender.com
+
+        ↓
+
+Supabase + Groq
 ```
 
-### Frontend (`Frontend/.env`)
-```env
-VITE_API_BASE_URL=http://localhost:8080
-```
+Production environment variables must be configured directly in the hosting platform.
 
-## Project Structure
-```
+Do not commit production secrets to GitHub.
+
+## 📁 Project Structure
+
+The exact structure may vary depending on the current implementation, but the project follows a structure similar to:
+
+```text
 sanchitX/
-├── Backend/
-│   ├── middleware/        # Authentication middleware
-│   ├── models/            # Mongoose schemas (User, Thread)
-│   ├── routes/            # Express route handlers (auth, chat)
-│   ├── server.js          # Main Express server entrypoint
-│   └── package.json
-├── Frontend/
+│
+├── frontend/
 │   ├── src/
-│   │   ├── assets/        # SanchitX branding & SVG icons
-│   │   ├── App.jsx        # Root application component
-│   │   ├── Auth.jsx       # Authentication modal & forms
-│   │   ├── ChatWindow.jsx # Main chat view & model selector
-│   │   ├── Sidebar.jsx    # Conversation history & thread management
-│   │   └── config.js      # Dynamic API base URL configuration
+│   ├── public/
 │   └── package.json
+│
+├── backend/
+│   ├── routes/
+│   ├── controllers/
+│   ├── services/
+│   ├── server.js
+│   └── package.json
+│
+├── .gitignore
+├── .env.example
 └── README.md
 ```
 
-## Deployment
-SanchitX is configured for deployment on platforms like Render, Vercel, or Railway.
-- **Backend Service**: Deploy the `Backend` directory as a Node.js Web Service. Set environment variables (`GROQ_API_KEY`, `JWT_SECRET`, `MONGODB_URI`).
-- **Frontend Service**: Deploy the `Frontend` directory as a Static Site or Web Service. Set `VITE_API_BASE_URL` to your backend service URL.
+## 🔑 Environment Variables
 
-## Future Improvements
-- **Streaming Responses**: Real-time token streaming for AI replies.
-- **File Uploads**: Document and image analysis support.
-- **Theme Customization**: Additional accent themes and custom color palettes.
+| Variable            | Purpose                            |
+| ------------------- | ---------------------------------- |
+| `GROQ_API_KEY`      | Groq API authentication            |
+| `GROQ_MODEL`        | AI model used by SanchitX          |
+| `SUPABASE_URL`      | Supabase project URL               |
+| `SUPABASE_ANON_KEY` | Supabase public authentication key |
+| `VITE_API_BASE_URL` | Backend API URL for the frontend   |
 
-## Author
+Use only the variables required by your current project configuration.
+
+## 📌 Important Notes
+
+* Never commit `.env` files.
+* Never expose `GROQ_API_KEY` in frontend code.
+* Never expose `SUPABASE_SERVICE_ROLE_KEY` to the frontend.
+* Configure production environment variables through Render.
+* Make sure the production frontend URL is configured in Supabase authentication settings.
+* Configure backend CORS to allow the production frontend URL.
+
+## 🔮 Future Improvements
+
+Potential future improvements include:
+
+* Google authentication
+* Streaming AI responses
+* Voice input
+* Voice output
+* File uploads
+* Image understanding
+* AI-generated conversation titles
+* Search across conversation history
+* Model comparison
+* Custom system prompts
+* Conversation export
+* User profile customization
+* Usage analytics
+
+## 👨‍💻 Author
+
 **Sanchit Kaushik**
-- GitHub: [https://github.com/sanchitkaushik1307](https://github.com/sanchitkaushik1307)
+
+GitHub: **[sanchitkaushik1307](https://github.com/sanchitkaushik1307)**
+
+## 📄 License
+
+This project is intended for educational and portfolio purposes.
+
+---
+
+### SanchitX
+
+**Think. Generate. Innovate.**
