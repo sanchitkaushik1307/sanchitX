@@ -1,0 +1,314 @@
+.chatWindow {
+    background-color: #121214;
+    height: 100vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: #121214;
+    z-index: 40;
+}
+
+.navbarLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobileMenuBtn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px;
+}
+
+@media (max-width: 768px) {
+    .mobileMenuBtn {
+        display: block;
+    }
+}
+
+.modelSelectorWrapper {
+    position: relative;
+}
+
+.modelSelectorBtn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.modelSelectorBtn:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.brandTitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.brandX {
+    font-weight: 800;
+    background: linear-gradient(135deg, #00d2ff 0%, #3b82f6 50%, #9333ea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.modelBadge {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #94a3b8;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.dropdownChevron {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.modelDropdownMenu {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 280px;
+    background-color: #1c1c1f;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.dropdownHeader {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    padding: 6px 10px;
+    letter-spacing: 0.05em;
+}
+
+.modelOptionItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.modelOptionItem:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.modelOptionItem.selected {
+    background-color: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+.modelOptionInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.modelOptionName {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.modelOptionId {
+    font-size: 0.72rem;
+    color: #64748b;
+}
+
+.checkIcon {
+    color: #38bdf8;
+    font-size: 0.9rem;
+}
+
+/* User Profile Navbar Right */
+.navbarRight {
+    position: relative;
+}
+
+.userProfileIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00d2ff 0%, #9333ea 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 210, 255, 0.3);
+    transition: transform 0.15s ease;
+}
+
+.userProfileIcon:hover {
+    transform: scale(1.06);
+}
+
+.profileDropdownMenu {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    width: 200px;
+    background-color: #1c1c1f;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    text-align: left;
+}
+
+.profileMenuHeader {
+    padding: 6px 8px;
+}
+
+.profileMenuName {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.profileMenuEmail {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin: 2px 0 0 0;
+}
+
+.profileDropdownMenu hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 6px 0;
+}
+
+.profileMenuItem {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    color: #f87171;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profileMenuItem:hover {
+    background-color: rgba(239, 68, 68, 0.15);
+}
+
+/* Chat Input */
+.chatInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem 1rem 1rem;
+    background: linear-gradient(180deg, rgba(18, 18, 20, 0) 0%, #121214 30%);
+}
+
+.inputBox {
+    width: 100%;
+    position: relative;
+    max-width: 760px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: #1c1c1f;
+    padding: 16px 54px 16px 20px;
+    font-size: 0.95rem;
+    border-radius: 24px;
+    color: #f8fafc;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+input:focus {
+    outline: none;
+    border-color: rgba(0, 210, 255, 0.5);
+    box-shadow: 0 4px 25px rgba(0, 210, 255, 0.15);
+}
+
+#submit {
+    cursor: pointer;
+    height: 38px;
+    width: 38px;
+    font-size: 15px;
+    position: absolute;
+    right: 9px;
+    border-radius: 50%;
+    background-color: #334155;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#submit.active {
+    background: linear-gradient(135deg, #00d2ff 0%, #3b82f6 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 210, 255, 0.4);
+}
+
+#submit i {
+    color: inherit;
+}
+
+#submit.active:hover {
+    transform: scale(1.06);
+}
+
+.info {
+    font-size: 0.75rem;
+    padding: 0.6rem 0 0 0;
+    margin: 0;
+    color: #64748b;
+}

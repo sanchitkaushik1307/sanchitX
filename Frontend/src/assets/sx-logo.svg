@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wordmark-x-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#a100ff" />
+    </linearGradient>
+    <linearGradient id="tagline-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d2ff" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#a100ff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Wordmark: sanchitX (Unified single text element without gap) -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <text x="10" y="95" font-size="90" font-weight="700" fill="#ffffff" letter-spacing="-3">sanchit<tspan fill="url(#wordmark-x-grad)" font-weight="800">X</tspan></text>
+
+    <!-- Tagline: Think. Generate. Innovate. -->
+    <text x="14" y="142" font-size="25" font-weight="600" fill="url(#tagline-grad)" letter-spacing="2.5">Think. Generate. Innovate.</text>
+  </g>
+</svg>
