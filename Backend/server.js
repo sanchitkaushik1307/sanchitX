@@ -54,10 +54,12 @@ app.use((req, res, next) => {
     });
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`SanchitX server running on port ${PORT}`);
-    connectDB();
-});
+if (process.env.NODE_ENV !== "test") {
+    app.listen(PORT, "0.0.0.0", () => {
+        console.log(`SanchitX server running on port ${PORT}`);
+        connectDB();
+    });
+}
 
 mongoose.set('bufferCommands', false);
 
@@ -76,3 +78,6 @@ const connectDB = async() => {
         console.log("💡 App will run in memory mode. Start MongoDB to persist chat history.");
     }
 };
+
+export { app, connectDB };
+export default app;
