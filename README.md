@@ -2,12 +2,13 @@
 
 > **Think. Generate. Innovate.**
 
+[![CI](https://github.com/sanchitkaushik1307/sanchitX/actions/workflows/ci.yml/badge.svg)](https://github.com/sanchitkaushik1307/sanchitX/actions/workflows/ci.yml)
+
 SanchitX is a full-stack AI chatbot application designed to provide a modern conversational AI experience with persistent conversations, secure authentication, chat management, and AI-powered responses using the Groq API.
 
 ## 🚀 Live Demo
 
 **[SanchitX — Live Demo](https://sanchitx.onrender.com)**
-
 ## ✨ Features
 
 * 🤖 AI-powered conversational chat using Groq
@@ -220,6 +221,15 @@ Supabase + Groq
 Production environment variables must be configured directly in the hosting platform.
 
 Do not commit production secrets to GitHub.
+
+## 🔄 Continuous Integration (CI)
+
+SanchitX uses **GitHub Actions** for automated Continuous Integration on every push and pull request targeting the `main` branch.
+
+The CI pipeline runs automated checks across both frontend and backend:
+
+* **Frontend CI**: Sets up Node.js with caching, installs dependencies using `npm ci`, and builds the React application (`npm run build`).
+* **Backend CI**: Sets up Node.js with caching, installs dependencies using `npm ci`, and validates backend server code syntax (`node --check server.js`).
 
 ## 📁 Project Structure
 
