@@ -229,7 +229,25 @@ SanchitX uses **GitHub Actions** for automated Continuous Integration on every p
 The CI pipeline runs automated checks across both frontend and backend:
 
 * **Frontend CI**: Sets up Node.js with caching, installs dependencies using `npm ci`, and builds the React application (`npm run build`).
-* **Backend CI**: Sets up Node.js with caching, installs dependencies using `npm ci`, and validates backend server code syntax (`node --check server.js`).
+* **Backend CI**: Sets up Node.js with caching, installs dependencies using `npm ci`, runs the automated backend test suite (`npm test`), and validates backend syntax (`node --check server.js`).
+
+## 🧪 Automated Testing
+
+Automated backend tests verify authentication, session verification, user data isolation, conversation lifecycle, input validation, and AI utility resilience using **Jest** and **Supertest**.
+
+### Run Backend Tests
+
+```bash
+cd Backend
+npm test
+```
+
+### Generate Coverage Report
+
+```bash
+cd Backend
+npm run test:coverage
+```
 
 ## 📁 Project Structure
 
